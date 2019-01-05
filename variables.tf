@@ -1,9 +1,9 @@
 variable peer_owner_id {}
 variable peer_owner_region { default = "eu-west-2"}
-variable requester_vpc_filter_tag_name { default = "tag:aws:cloudformation:logical-id"}
-variable accepter_vpc_filter_tag_name { default = "tag:aws:cloudformation:logical-id"}
-variable requester_route_table_filter_tag_name { default = "tag:aws:cloudformation:logical-id"}
-variable accepter_route_table_filter_tag_name { default = "tag:aws:cloudformation:logical-id"}
+variable requester_vpc_filter_tag_name { default = "tag:Type"}
+variable accepter_vpc_filter_tag_name { default = "tag:Type"}
+variable requester_route_table_filter_tag_name { default = "tag:Type"}
+variable accepter_route_table_filter_tag_name { default = "tag:Type"}
 
 variable accepter_allow_remote_vpc_dns_resolution { default = true }
 variable requester_allow_remote_vpc_dns_resolution { default = true }
