@@ -3,7 +3,7 @@ data "aws_route_tables" "requester" {
   vpc_id   = "${data.aws_vpc.requester.id}"
 
   filter {
-    name   = "${var.route_table_filter_tag_name}"
+    name   = "${var.requester_route_table_filter_tag_name}"
     values = ["PrivateRouteTable*"]
   }
 }
@@ -13,7 +13,7 @@ data "aws_route_tables" "accepter" {
   vpc_id   = "${data.aws_vpc.accepter.id}"
 
   filter {
-    name   = "${var.route_table_filter_tag_name}"
+    name   = "${var.accepter_route_table_filter_tag_name}"
     values = ["PrivateRouteTable*"]
   }
 }

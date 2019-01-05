@@ -4,7 +4,7 @@ resource "aws_vpc_peering_connection" "peer" {
   peer_vpc_id   = "${data.aws_vpc.accepter.id}"
   peer_owner_id = "${data.aws_caller_identity.peer.account_id}"
   auto_accept   = false
-  peer_region = "${}"
+  peer_region = "${var.peer_owner_region}"
 
   tags = "${merge(var.common_tags, map("Side" ,"Requester"), map("Peered Account", "${var.accepter_account_alias}"))}"
 }
