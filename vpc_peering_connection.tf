@@ -6,5 +6,16 @@ resource "aws_vpc_peering_connection" "peer" {
   auto_accept   = false
   peer_region = "${var.peer_owner_region}"
 
+  accepter {
+    allow_remote_vpc_dns_resolution = true
+  }
+
+  requester {
+    allow_remote_vpc_dns_resolution = true
+  }
+
   tags = "${merge(var.common_tags, map("Side" ,"Requester"), map("Peered Account", "${var.accepter_account_alias}"))}"
+  lifecycle {
+    ignore_changes = [ "requester"]
+  }
 }
